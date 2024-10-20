@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #101010;
+  --secondary-color: #303030;
+  --contrast: #e0e0e0;
+}
+
+body {
+  font-family: Arial;
+  background: var(--primary-color);
+  padding: 200px;
+  color: white;
+}
+
+main {
+  background: var(--secondary-color);
+}
+
+.p-default {
+  padding: 30px;
+}
+
+.p-5 {
+  padding: 5px;
+}
+
+.radius-10 {
+  border-radius: 10px;
+}
+
+.radius-5 {
+  border-radius: 5px;
+}
+
+.card {
+  background: var(--contrast);
+}
+
+.task-complete {
+  text-decoration: line-through;
+  opacity: 0.5;
+}

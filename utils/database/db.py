@@ -6,10 +6,10 @@ class Database:
     try:
       self.connection = pg8000.connect(
         host="localhost", 
-        database="postgres", 
-        user="postrges", 
+        database="tareas", 
+        user="admin_tareas", 
         password="postgres",
-        port=5435
+        port=5436
       )
     except Exception as e:
       print('Error al conectar con la base de datos', e)
@@ -18,7 +18,7 @@ class Database:
     sql = self.connection.cursor()
 
     try:
-      sql.execute('SELECT * FROM tareas;')
+      sql.execute('SELECT * FROM tarea;')
 
       registros = sql.fetchall()
 
@@ -26,6 +26,30 @@ class Database:
     
     except Exception as e:
       print('Error al realizar consulta', e)
+
+  def get_by_id( self, id ):
+    sql = self.connection.cursor()
+
+    try:
+      sql.execute(f'SELECT * FROM tarea WHERE id = {id}')
+
+
+      registro = sql.fetchone()
+
+      return registro
+    except Exception as e:
+      print('Error al realizar consulta', e)
+  
+  def create( self, data ):
+
+    sql = self.connection.cursor()
+
+    try:
+      # Asumiendo que 'sql' es tu cursor
+        sql.execute('INSERT INTO tarea (titulo, contenido, fecha_fin) VALUES (%s, %s, %s)', (data['titulo'], data['contenido'], data['fecha_fin']))
+    except Exception as e:
+      print('Error al realizar inserción', e)
+      
 
   def close_connection(self):
     self.connection.close()
