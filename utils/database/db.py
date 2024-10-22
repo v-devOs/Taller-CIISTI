@@ -1,4 +1,6 @@
 import pg8000
+import datetime
+
 
 class Database:
 
@@ -21,8 +23,12 @@ class Database:
       sql.execute('SELECT * FROM tarea;')
 
       registros = sql.fetchall()
+      
+      for registro in registros:
+        registro[3] = registro[3].strftime("%Y-%m-%d")
 
       return registros
+    
     
     except Exception as e:
       print('Error al realizar consulta', e)
@@ -36,6 +42,8 @@ class Database:
 
       registro = sql.fetchone()
 
+      registro[3] = registro[3].strftime("%Y-%m-%d")
+
       return registro
     except Exception as e:
       print('Error al realizar consulta', e)
@@ -45,12 +53,31 @@ class Database:
     sql = self.connection.cursor()
 
     try:
-      # Asumiendo que 'sql' es tu cursor
-        sql.execute('INSERT INTO tarea (titulo, contenido, fecha_fin) VALUES (%s, %s, %s)', (data['titulo'], data['contenido'], data['fecha_fin']))
+      sql.execute('INSERT INTO tarea (titulo, contenido, fecha_fin) VALUES (%s, %s, %s)', (data['titulo'], data['contenido'], data['fecha_fin']))
+      
+      return True
+    
     except Exception as e:
       print('Error al realizar inserción', e)
-      
+      return False
+
+  def update( self, data, complete = False ):
+    sql = self.connection.cursor()
+
+    try: 
+
+      sql.execute('''
+          UPDATE tarea 
+          SET titulo = %s, contenido = %s, fecha_fin = %s , terminado = %s
+          WHERE id = %s
+      ''', (data['titulo'], data['contenido'], data['fecha_fin'], data['id'], complete))
+
+      return True
+
+    except Exception as e:
+      print('Error al actualizar datos', e)
+      return False
+    
 
   def close_connection(self):
     self.connection.close()
-

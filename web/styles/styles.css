@@ -5,7 +5,7 @@
 :root {
   --primary-color: #101010;
   --secondary-color: #303030;
-  --contrast: #e0e0e0;
+  --contrast: #7c7979;
 }
 
 body {
@@ -19,8 +19,50 @@ main {
   background: var(--secondary-color);
 }
 
+section {
+  margin-top: 20px;
+}
+
+button {
+  width: 100px;
+  height: 40px;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  width: 400px;
+  height: 30px;
+  border: none;
+  background: none;
+  color: white;
+  border-bottom: 1px white solid;
+}
+
+input::placeholder {
+  color: white;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+form div {
+  margin: 20px 5px;
+}
+
 .p-default {
   padding: 30px;
+}
+
+.p-10 {
+  padding: 10px;
 }
 
 .p-5 {
@@ -42,4 +84,8 @@ main {
 .task-complete {
   text-decoration: line-through;
   opacity: 0.5;
+}
+
+.disable {
+  display: none;
 }

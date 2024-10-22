@@ -9,14 +9,48 @@
     <script type="text/javascript" src="/eel.js"></script>
   </head>
   <body>
-    <main class="">
+    <main class="p-default radius-10">
       <div>
         <h1>Lista de Tareas CIISTI</h1>
       </div>
 
-      <section>Campos para crear tarea</section>
+      <section class="card p-10 radius-5">
+        <h2>Agregar tarea</h2>
+        <form action="/" method="get" id="form-task">
+          <div class="container-input flex flex-col">
+            <label for="">Titulo</label>
+            <input type="text" id="titulo" placeholder="Souvenir CIISTI" />
+          </div>
 
-      <section id="container-task">lista de tareas</section>
+          <div class="flex">
+            <div class="container-input flex flex-col">
+              <label for="">Contenido</label>
+              <input
+                type="text"
+                id="contenido"
+                placeholder="Recoger mi souvenir del Congreso"
+              />
+            </div>
+
+            <div class="container-input flex flex-col">
+              <label for="">Finaliza</label>
+              <input type="date" id="fecha-fin" name="" id="" />
+            </div>
+          </div>
+
+          <div>
+            <button type="submit">Crear tarea</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card p-10 radius-5">
+        <div>
+          <h2>Mis tareas</h2>
+        </div>
+
+        <div id="container-task"></div>
+      </section>
     </main>
 
     <script src="./js/main.js"></script>
