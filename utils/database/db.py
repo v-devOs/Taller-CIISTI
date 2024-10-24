@@ -26,7 +26,7 @@ class Database:
 
       
       for registro in registros:
-        registro[4] = registro[4].strftime("%Y-%m-%d")
+        registro[3] = registro[3].strftime("%Y-%m-%d")
 
       return registros
     
@@ -62,7 +62,7 @@ class Database:
       print('Error al realizar inserción', e)
       return False
 
-  def update( self, data, complete = False ):
+  def update( self, data):
     sql = self.connection.cursor()
 
     try: 
@@ -71,12 +71,28 @@ class Database:
           UPDATE tarea 
           SET titulo = %s, contenido = %s, fecha_fin = %s , terminado = %s
           WHERE id = %s
-      ''', (data['titulo'], data['contenido'], data['fecha_fin'], data['id'], complete))
+      ''', (data['titulo'], data['contenido'], data['fecha_fin'], data['id']))
 
       return True
 
     except Exception as e:
       print('Error al actualizar datos', e)
+      return False
+    
+  def mark_as_complete( self, id ):
+    sql = self.connection.cursor()
+
+    try: 
+
+      sql.execute('''
+          UPDATE tarea 
+          SET terminado = %s
+          WHERE id = %s
+      ''', (True, id ))
+
+      return True
+    except Exception as e:
+      print('Error al actualizar tarea', e)
       return False
     
 

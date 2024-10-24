@@ -14,34 +14,34 @@
         <h1>Lista de Tareas CIISTI</h1>
       </div>
 
-      <section class="container p-10 radius-5">
-        <h2>Agregar tarea</h2>
-        <form action="/" method="get" id="form-task">
-          <div class="container-input flex flex-col">
-            <label for="">Titulo</label>
-            <input type="text" id="titulo" placeholder="Souvenir CIISTI" />
-          </div>
+      <section class="container p-10 radius-5 flex wrap">
+        <div class="flex">
+          <form id="form-task">
+            <h2>Agregar tarea</h2>
+            <label for="titulo">Titulo</label>
+            <input type="text" id="titulo" placeholder="Talleres del CIISTI" />
 
-          <div class="flex">
-            <div class="container-input flex flex-col">
-              <label for="">Contenido</label>
-              <input
-                type="text"
-                id="contenido"
-                placeholder="Recoger mi souvenir del Congreso"
-              />
-            </div>
+            <label for="contenido">Contenido</label>
+            <input
+              type="text"
+              id="contenido"
+              placeholder="Asitir a mis conferencias"
+            />
 
-            <div class="container-input flex flex-col">
-              <label for="">Finaliza</label>
-              <input type="date" id="fecha-fin" name="" id="" />
-            </div>
-          </div>
+            <label for="fecha">Fecha fin</label>
+            <input type="date" id="fecha" />
+
+            <button type="submit">Crear</button>
+          </form>
 
           <div>
-            <button type="submit">Crear tarea</button>
+            <img
+              src="https://tigger.celaya.tecnm.mx/CIISTI/images/logoCongreso.png"
+              alt="Logo Tecnm Celaya"
+              width="500px"
+            />
           </div>
-        </form>
+        </div>
       </section>
 
       <section class="container p-10 radius-5">
@@ -49,7 +49,7 @@
           <h2>Mis tareas</h2>
         </div>
 
-        <div id="container-tasks" class="flex">
+        <div id="container-tasks" class="flex gap-10">
           <!-- Aquí se muestran todas las tareas -->
         </div>
       </section>

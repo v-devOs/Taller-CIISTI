@@ -26,4 +26,9 @@ class ExposerDB:
   @staticmethod
   def update_register( data, complete = False ):
     return db.update( data, complete )
+  
+  @eel.expose
+  @staticmethod
+  def mark_complete( id ):
+    return db.mark_as_complete(id)
 
