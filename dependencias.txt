@@ -1,3 +1,1 @@
-pip install eel
-pip install xlwings
-pip install pg8000
+pip install eel pg8000

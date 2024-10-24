@@ -4,17 +4,12 @@ const info = {
   newRegister: {},
 };
 
-// Contenedor de Tareas
-const containerTasks = document.getElementById("container-tasks");
+// Div de las tareas
 
 // Logica para obtener todos
-// Obtener los campos
-document.getElementById("form-task").addEventListener("submit", (event) => {
-  event.preventDefault();
-});
+// Listener envio de datos formulario
 
 function createCardsTasks(data = []) {
-  console.log({ data });
   containerTasks.innerHTML = data.map(
     (item) =>
       ` 
@@ -38,50 +33,10 @@ function createCardsTasks(data = []) {
         </div>
       `
   );
-
-  const cards = document.getElementsByClassName("card");
-
-  const card = cards.item(0);
-
-  card.addEventListener("dblclick", () => card.classList.add("complete"));
-
-  for (const card in cards) {
-    console.log(card);
-  }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  getAllRegisters();
-});
+// Listener que cargara todos los datos
 
-// Funciones Expuestas
-function getAllRegisters() {
-  eel.get_all_registers()(function (data) {
-    info.registers = data;
-    createCardsTasks(data);
-  });
-}
-
-function getOneRegister(id) {
-  eel.get_one_by_id(id)(function (data) {
-    console.log({ data }, "Un solo registro");
-  });
-}
-
-function createNewRegister() {
-  eel.create_register(info.newRegister)(function (state) {
-    // Condicionar respuesta
-  });
-}
-
-function updateRegister() {
-  eel.update_register(info.newRegister)(function (state) {
-    // Condicionar respuesta
-  });
-}
-
-function markTaskAsComplete(id) {
-  eel.mark_complete(id);
-}
+// Funciones Expuestas -> Deben ser 5 en total
 
 // Funciones adicionales
