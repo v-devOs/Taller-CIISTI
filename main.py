@@ -7,7 +7,7 @@ def main():
   eel.init('web')
   eel.start('index.html', mode='edge')
 
-  exposer = ExposerDB
+  # exposer = ExposerDB
 
 if __name__ == '__main__':
   main()

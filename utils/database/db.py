@@ -23,9 +23,10 @@ class Database:
       sql.execute('SELECT * FROM tarea;')
 
       registros = sql.fetchall()
+
       
       for registro in registros:
-        registro[3] = registro[3].strftime("%Y-%m-%d")
+        registro[4] = registro[4].strftime("%Y-%m-%d")
 
       return registros
     

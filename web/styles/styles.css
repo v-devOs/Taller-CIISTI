@@ -3,16 +3,16 @@
 }
 
 :root {
-  --primary-color: #101010;
-  --secondary-color: #303030;
-  --contrast: #7c7979;
+  --primary-color: #2a4d69;
+  --secondary-color: #4b8b3b;
+  --contrast: #f1f1f1;
 }
 
 body {
   font-family: Arial;
   background: var(--primary-color);
-  padding: 200px;
-  color: white;
+  padding: 50px 100px;
+  color: var(--contrast);
 }
 
 main {
@@ -37,24 +37,31 @@ input {
   height: 30px;
   border: none;
   background: none;
-  color: white;
-  border-bottom: 1px white solid;
+  border-bottom: 1px #252525 solid;
 }
 
-input::placeholder {
-  color: white;
+a {
+  text-decoration: none;
 }
 
 .flex {
   display: flex;
 }
 
+.wrap {
+  flex-wrap: wrap;
+}
+
 .flex-col {
   flex-direction: column;
 }
 
-form div {
-  margin: 20px 5px;
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
 }
 
 .p-default {
@@ -78,6 +85,13 @@ form div {
 }
 
 .card {
+  width: 300px;
+  background-color: #252525;
+  color: white;
+}
+
+.container {
+  color: #252525;
   background: var(--contrast);
 }
 
@@ -88,4 +102,14 @@ form div {
 
 .disable {
   display: none;
+}
+
+@media screen and (max-width: 468px) {
+  body {
+    padding: 10px 5px;
+  }
+
+  input {
+    width: 200px;
+  }
 }
