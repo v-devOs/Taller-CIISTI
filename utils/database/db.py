@@ -1,6 +1,8 @@
 import pg8000
 import datetime
 
+# postgresql://neondb_owner:C6K0oFarYZQz@ep-flat-voice-a8v6bi2w.eastus2.azure.neon.tech/neondb?sslmode=require
+
 
 class Database:
 
@@ -24,9 +26,13 @@ class Database:
 
       registros = sql.fetchall()
 
-      
       for registro in registros:
-        registro[3] = registro[3].strftime("%Y-%m-%d")
+        for valor in registro:
+          if type(valor) == datetime.datetime:
+            value = value.strftime("%Y-%m-%d")
+      
+      # for registro in registros:
+      #   registro[3] = registro[3].strftime("%Y-%m-%d")
 
       return registros
     

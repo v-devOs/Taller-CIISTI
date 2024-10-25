@@ -32,9 +32,11 @@ function createCardsTasks(data = []) {
             </div>
             <div>
               <p>Fecha</p>
-              <p>${item[3]}</p>
+              <p>${typeof item[2] == "boolean" ? item[3] : item[2]}</p>
             </div>
           </div>
+
+          <button>Enviar</button>
         </div>
       `
   );
